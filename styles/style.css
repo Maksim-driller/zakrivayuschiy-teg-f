@@ -14,11 +14,11 @@
   display: grid;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  color: var(--color);
+  color: var(--text-color);
   font-family: var(--font-base), sans-serif;
-  font-variation-settings: "wght" var(--wght);
-  font-size: var(--font-size);
-  background-image: var(--cover);
+  font-variation-settings: "wght" var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  background-image: var(--background-pattern);
   background-attachment: fixed;
   background-size: cover;
   background-color: var(--page-bg-color);
@@ -40,7 +40,7 @@
 .title__decor {
   display: block;
   font-family: var(--font-accent), fantasy;
-  font-size: var(--hero-title);
+  font-size: var(--hero-title-size);
   margin-block-start: clamp(122px, calc(0.00751 * 100vw + 119.18px), 130px);
   align-items: center;
   justify-content: center;
@@ -52,7 +52,7 @@
   display: grid;
   max-inline-size: 696px;
   width: 100%;
-  font-size: var(--hero-subtitle);
+  font-size: var(--hero-subtitle-size);
   text-align: center;
   align-content: center;
   font-family: var(--font-accent), fantasy;
@@ -84,25 +84,25 @@ main {
   aspect-ratio: 1/1;
 }
 
-.photo-sepia {
+.filter-sepia {
   filter: sepia(1);
 }
-.photo-bw {
+.filter-grayscale {
   filter: grayscale(1);
 }
-.photo-contrast {
+.filter-contrast {
   filter: contrast(1.5);
 }
-.photo-blur {
+.filter-blur {
   filter: blur(3px);
 }
-.photo-bright {
+.filter-brightness {
   filter: brightness(1.3);
 }
-.photo-saturate {
+.filter-saturate {
   filter: saturate(2);
 }
-.photo-hue {
+.filter-hue-rotate {
   filter: hue-rotate(90deg) saturate(1.5);
 }
 
@@ -111,10 +111,10 @@ main {
 }
 
 .card__title {
-  font-variation-settings: "wght" var(--card-title-wght);
+  font-variation-settings: "wght" var(--font-weight-bold);
   padding: 5px 10px;
   font-family: var(--font-base), sans-serif;
-  font-size: var(--font-size);
+  font-size: var(--font-size-base);
   border-block-end: 2px solid var(--border-color);
 }
 
@@ -126,7 +126,7 @@ main {
   text-shadow: -1px 0 var(--page-bg-color), 1px 0 var(--page-bg-color),
     0 -1px var(--page-bg-color), 0 1px var(--page-bg-color);
   font-size: 14px;
-  color: var(--color);
+  color: var(--text-color);
   opacity: 0.5;
 }
 
@@ -136,24 +136,28 @@ main {
   border-block-start: 2px solid var(--border-color);
   padding: 25px;
   gap: 25px;
-  font-size: 18px;
+  font-size: var(--font-size-base);
   line-height: 21px;
 }
 
 .card__paragraph {
-  font-size: 18px;
+  font-size: var(--font-size-base);
   line-height: 21px;
 }
 
+.like-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
 .like-icon:active {
-  animation: heartBeat 0.5s ease-in-out infinite;
+  animation: heart-beat-animation 0.5s ease-in-out infinite;
 }
 
 .card__icon-button {
   display: flex;
   border-color: transparent;
   background-color: transparent;
-  color: var(--color);
+  color: var(--text-color);
   cursor: pointer;
   margin: 0;
 }
@@ -202,7 +206,7 @@ main {
 }
 
 .button .button__text {
-  transition: color 0.5s ease-in-out;
+  /* Убираем анимацию с текста - только псевдоэлемент должен анимироваться */
 }
 
 .button:hover::before {
@@ -215,14 +219,14 @@ main {
 }
 
 .button__text {
-  font-size: var(--button-size);
+  font-size: var(--button-font-size);
   color: var(--button-text-color);
   font-family: var(--font-accent), fantasy;
   mix-blend-mode: difference;
 }
 
 .button:hover .button__text {
-  color: var(--button-text-color);
+  /* Убираем анимацию с текста - только псевдоэлемент должен анимироваться */
 }
 
 .button svg {
@@ -231,7 +235,7 @@ main {
 }
 
 .button:hover svg {
-  color: var(--button-text-color);
+  /* Убираем анимацию с иконки - только псевдоэлемент должен анимироваться */
 }
 
 .save {
@@ -254,13 +258,12 @@ main {
   padding: 30px;
   position: fixed;
   background-color: var(--page-bg-color);
-  border: 2px solid var(--color);
-  overflow: hidden;
+  border: 2px solid var(--text-color);
 }
 
 .dialog::backdrop {
   opacity: 0.75;
-  background: var(--color);
+  background: var(--text-color);
 }
 
 .dialog__title {
@@ -309,19 +312,11 @@ main {
 
 @supports (mix-blend-mode: difference) {
   .button .button__text {
-    transition: none;
+    /* Убираем анимацию с текста - только псевдоэлемент должен анимироваться */
   }
 }
 
 @media (max-width: 768px) {
-  .hero__title {
-    font-size: var(--hero-subtitle);
-  }
-
-  .title__decor {
-    font-size: var(--hero-title);
-  }
-
   .save__button {
     flex-direction: column;
   }
