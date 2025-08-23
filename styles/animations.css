@@ -15,8 +15,20 @@
     0% {
       transform: scale(1);
     }
-    95% {
-      transform: scale(1.5);
+    14% {
+      transform: scale(1.3);
+    }
+    28% {
+      transform: scale(1);
+    }
+    42% {
+      transform: scale(1.3);
+    }
+    56% {
+      transform: scale(1);
+    }
+    70% {
+      transform: scale(1.3);
     }
     100% {
       transform: scale(1);
@@ -82,7 +94,7 @@
   
   .like-icon.is-liked .sparks {
     transform-origin: center;
-    animation: sparks-fill-animation 0.3s 0.3s ease-in alternate;
+    animation: sparks-fill-animation 0.3s 2s ease-in alternate;
   }
   
   .card__like-button:active {
@@ -90,5 +102,5 @@
   }
   
   .like-icon.is-liked {
-    animation: heart-beat-animation 0.5s ease-in-out alternate;
+    animation: heart-beat-animation 2s ease-in-out;
   }
