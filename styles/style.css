@@ -149,9 +149,7 @@ main {
   transition: transform 0.3s ease-in-out;
 }
 
-.like-icon:active {
-  animation: heart-beat-animation 0.5s ease-in-out infinite;
-}
+
 
 .card__icon-button {
   display: flex;
@@ -283,9 +281,6 @@ main {
 }
 
 .dialog__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   min-height: 38px;
   padding: 9px 17px;
