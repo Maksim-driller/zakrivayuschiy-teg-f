@@ -245,7 +245,7 @@ main {
 }
 
 .save__button {
-  min-height: 38px;
+  min-height: 58px;
   gap: 8px;
   padding: 9px 17px;
 }
@@ -255,7 +255,6 @@ main {
   justify-content: center;
   align-items: center;
   width: 353px;
-  height: 191px;
   padding: 30px;
   position: fixed;
   background-color: var(--page-bg-color);
@@ -318,6 +317,12 @@ main {
 @media (max-width: 768px) {
   .save__button {
     flex-direction: column;
+  }
+
+  .dialog[open] {
+    width: 90%;
+    max-width: 353px;
+    padding: 20px;
   }
 
   .dialog__icon {
